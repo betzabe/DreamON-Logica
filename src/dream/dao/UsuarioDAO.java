@@ -8,12 +8,13 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import Entidad.Usuario;
+import Enum.Categoria;
 import dream.util.HibernateUtil;
 
 
 public class UsuarioDAO {
 
-    private Session sesion; 
+	private Session sesion; 
     private Transaction tx;  
     
     Usuario usuario;
