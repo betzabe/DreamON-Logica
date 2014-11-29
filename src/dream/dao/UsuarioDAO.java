@@ -8,7 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import Entidad.Usuario;
-import Enum.Categoria;
 import dream.util.HibernateUtil;
 
 
