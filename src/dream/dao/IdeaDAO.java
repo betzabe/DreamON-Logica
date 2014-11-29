@@ -67,7 +67,7 @@ package dream.dao;
 	    public List<Idea> getIdesPorHashtag(String nombre) {
 	        listas.clear();
 	        iniciarOperacion();
-	        listas = sesion.createQuery("select h.idea from Hashtag h where h.nombre = "+nombre.toLowerCase()).list();
+	        listas = sesion.createQuery("select h.idea from Hashtag h where h.nombre = '"+nombre.toLowerCase()+"'").list();
 	        sesion.close();
 
 	        return listas;
