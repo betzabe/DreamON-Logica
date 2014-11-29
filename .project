@@ -3,7 +3,6 @@
 	<name>DreamON-Logica</name>
 	<comment></comment>
 	<projects>
-		<project>DreamOn-Entidad</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

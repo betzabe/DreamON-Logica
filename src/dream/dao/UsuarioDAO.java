@@ -48,6 +48,16 @@ public class UsuarioDAO {
         sesion.close();
         return usuario;  //NO funciona   
     }
+    
+    public Usuario consultarCorreo(String correo){
+    	usuario=new Usuario();
+    	iniciarOperacion();
+    	usuario=(Usuario)sesion.get(Usuario.class, correo);
+    	sesion.close();
+    	return usuario;
+    }
+    
+    
 
     public void actualizar(Usuario usuario) { 
         iniciarOperacion();
@@ -72,4 +82,15 @@ public class UsuarioDAO {
     	tx.rollback();
     	throw new HibernateException("Error de hibernate");
     }
+    
+    public boolean verificarUsuario(String correo,String password){
+    	String hql="FROM Usuario WHERE correo='"+correo+"' AND password='"+password+"'";
+    	Usuario u=(Usuario)sesion.createQuery(hql);
+    	if(u!=null){
+    		return true;
+    	}else 
+    		return false;
+    }
+        
 }
+
