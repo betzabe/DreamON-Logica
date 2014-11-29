@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import Entidad.Idea;
 import Entidad.IdeaLike;
 import dream.util.HibernateUtil;
 
@@ -62,6 +63,19 @@ public class IdeaLikeDAO {
         tx.commit();
         sesion.close();
     }
+    
+    public IdeaLike getPorIdea(int idea_id) {
+        listas.clear();
+        iniciarOperacion();
+        listas = sesion.createQuery("from IdeaLike i where i.idea.id = "+idea_id).list();
+        sesion.close();
+        if(listas==null||listas.size()==0){
+        	return null;
+        }else
+        	return listas.get(0);
+      
+    }
+    
     
     private void iniciarOperacion() throws HibernateException { 
         sesion = HibernateUtil.getSessionFactory().openSession(); 

@@ -13,7 +13,7 @@ import dream.util.HibernateUtil;
 
 public class UsuarioDAO {
 
-    private Session sesion; 
+	private Session sesion; 
     private Transaction tx;  
     
     Usuario usuario;

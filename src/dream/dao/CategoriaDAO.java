@@ -1,6 +1,5 @@
 package dream.dao;
 
-package dream.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ public class CategoriaDAO {
 
     private Session sesion; 
     private Transaction tx;  
-    
+   
     Categoria categoria;
     List<Categoria> listas;
     
