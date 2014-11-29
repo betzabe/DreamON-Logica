@@ -64,6 +64,15 @@ package dream.dao;
 	        sesion.close();
 	    }
 	    
+	    public List<Idea> getIdesPorHashtag(String nombre) {
+	        listas.clear();
+	        iniciarOperacion();
+	        listas = sesion.createQuery("select h.idea from Hashtag h where h.nombre = "+nombre.toLowerCase()).list();
+	        sesion.close();
+
+	        return listas;
+	    }
+	    
 	    private void iniciarOperacion() throws HibernateException { 
 	        sesion = HibernateUtil.getSessionFactory().openSession(); 
 	        tx = sesion.beginTransaction(); 
