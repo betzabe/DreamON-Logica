@@ -4,7 +4,7 @@ import Entidad.Hashtag;
 import Entidad.Idea;
 
 public class HashtagDAO {
-	Hashtag hashtag;
+	Hashtag hashtag_id;
 	String nombre;
 	Idea idea;
 	
