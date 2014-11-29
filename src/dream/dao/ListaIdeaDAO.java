@@ -63,6 +63,16 @@ public class ListaIdeaDAO {
         sesion.close();
     }
     
+    @SuppressWarnings("unchecked")
+    public List<ListaIdea> consultarPorUsuario(int usuario_id) {
+           listas.clear();
+           iniciarOperacion();
+           listas = sesion.createQuery("from ListaIdea where usuario.id = "+usuario_id).list();
+           sesion.close();
+
+           return listas;
+       }
+    
     private void iniciarOperacion() throws HibernateException { 
         sesion = HibernateUtil.getSessionFactory().openSession(); 
         tx = sesion.beginTransaction(); 

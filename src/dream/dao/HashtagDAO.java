@@ -63,6 +63,16 @@ public class HashtagDAO {
         sesion.close();
     }
     
+    @SuppressWarnings("unchecked")
+    public List<Hashtag> consultarPorIdea(int idea_id) {
+           listas.clear();
+           iniciarOperacion();
+           listas = sesion.createQuery("from Hashtag where idea.id = "+idea_id).list();
+           sesion.close();
+
+           return listas;
+       }
+    
     private void iniciarOperacion() throws HibernateException { 
         sesion = HibernateUtil.getSessionFactory().openSession(); 
         tx = sesion.beginTransaction(); 

@@ -73,6 +73,16 @@ package dream.dao;
 	        return listas;
 	    }
 	    
+	    @SuppressWarnings("unchecked")
+	    public List<Idea> consultarPorLista(int lista_idea_id) {
+	           listas.clear();
+	           iniciarOperacion();
+	           listas = sesion.createQuery("from Idea where listaIdea.id = "+lista_idea_id).list();
+	           sesion.close();
+
+	           return listas;
+	       }
+	    
 	    private void iniciarOperacion() throws HibernateException { 
 	        sesion = HibernateUtil.getSessionFactory().openSession(); 
 	        tx = sesion.beginTransaction(); 
